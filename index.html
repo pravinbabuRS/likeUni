@@ -225,6 +225,15 @@
                 document.getElementById("00NF9000007E8pw").focus();
                 return false;
             }
+             if (declarationCheck == false) {
+                document.getElementById("checkError").innerHTML = "<small>Check this declation.</small>";
+                document.getElementById("gridCheck").focus();
+                document.getElementById("checkError").animate([{ opacity: 0 }, { opacity: 1 }], {
+                    duration: 200, // milliseconds
+                    iterations: 5, // repeat indefinitely
+                });
+                return false;
+            }
         }
     </script>
 </head>
@@ -385,6 +394,20 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="country">Country</label><input  id="country" maxlength="40" name="country" size="20" pattern="[A-Za-z]+" class="form-control" placeholder="India" type="text" />
+                        </div>
+                        <div class="form-group">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="gridCheck">
+                            <label class="form-check-label" for="gridCheck">
+                                <small>I hereby declare that the information provided in this application is true and
+                                    correct to the best of my knowledge and belief. I understand that any false or
+                                    misleading information may lead to the rejection of my application or cancellation
+                                    of my admission.
+                                </small>
+                            </label>
+                            <div id="checkError" class="error">
+
+                            </div>
                         </div>
                     </div>
                     <input type="submit" name="submit" class="btn btn-success">
